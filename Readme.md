@@ -25,11 +25,13 @@ BaseURL: http://localhost:8080
 	POST /accounts
 	
 	Request Body:
+	
 		{
 			"document_number": "12345678900"
 		}
 	
 	Response: 
+	
 		account id(number)
 		e.g: 1
 
@@ -40,6 +42,7 @@ BaseURL: http://localhost:8080
 	GET /accounts/:accountId
 	
 	Response Body:
+	
 		{
 			"account_id": 1,
 			"document_number": "12345678900"
@@ -51,6 +54,7 @@ BaseURL: http://localhost:8080
 	POST /transactions
 	
 	Request Body:
+	
 		{
 			"account_id": 1,
 			"operation_type_id": 4,
@@ -58,6 +62,7 @@ BaseURL: http://localhost:8080
 		}
 
 	Response: 
+	
 		transaction id(number)
 		e.g: 1
 
@@ -67,6 +72,7 @@ BaseURL: http://localhost:8080
 	GET /transactions/:accountId
 	
 	Response Body:
+	
 		[
 			{
 				"amount": 123.45,
