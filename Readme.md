@@ -23,10 +23,11 @@ BaseURL: http://localhost:8080
 - Create an account
 
 	POST /accounts
+	
 	Request Body:
-	{
-		"document_number": "12345678900"
-	}
+		{
+			"document_number": "12345678900"
+		}
 	
 	Response: 
 		account id(number)
@@ -37,22 +38,24 @@ BaseURL: http://localhost:8080
 
 
 	GET /accounts/:accountId
+	
 	Response Body:
-	{
-		"account_id": 1,
-		"document_number": "12345678900"
-	} 
+		{
+			"account_id": 1,
+			"document_number": "12345678900"
+		} 
 
 
 - Create a transaction
 
 	POST /transactions
+	
 	Request Body:
-	{
-		"account_id": 1,
-		"operation_type_id": 4,
-		"amount": 123.45
-	}
+		{
+			"account_id": 1,
+			"operation_type_id": 4,
+			"amount": 123.45
+		}
 
 	Response: 
 		transaction id(number)
@@ -62,20 +65,21 @@ BaseURL: http://localhost:8080
 - Retrieve the transactions of account
 
 	GET /transactions/:accountId
+	
 	Response Body:
-	[
-		{
-			"amount": 123.45,
-			"transaction_id": 1,
-			"account_id": 1,
-			"operation_type": "Credit Voucher",
-			"event_date": "2022-12-03 05:58:55"
-		},
-		{
-			"amount": 200.00,
-			"transaction_id": 2,
-			"account_id": 1,
-			"operation_type": "Credit Voucher",
-			"event_date": "2022-12-03 06:01:00"
-		}
-	]
+		[
+			{
+				"amount": 123.45,
+				"transaction_id": 1,
+				"account_id": 1,
+				"operation_type": "Credit Voucher",
+				"event_date": "2022-12-03 05:58:55"
+			},
+			{
+				"amount": 200.00,
+				"transaction_id": 2,
+				"account_id": 1,
+				"operation_type": "Credit Voucher",
+				"event_date": "2022-12-03 06:01:00"
+			}
+		]
