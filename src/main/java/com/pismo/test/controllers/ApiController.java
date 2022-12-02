@@ -18,6 +18,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+@CrossOrigin(value = "*")
 @RestController
 @Transactional
 @RequestMapping(value = "/")
@@ -54,6 +55,8 @@ public class ApiController {
     @GetMapping(value = "transactions/{accountId}")
     @ResponseBody
     public List<GetTransactionsResponse> getTransactions(@PathVariable Integer accountId) {
+//        return transactionService.getTransactionsByQuery(accountId);
+
         List<Transactions> transactions = transactionService.getTransactions(accountId);
         return transactions.stream().map(item -> GetTransactionsResponse.builder()
                 .transactionId(item.getTransactionId())
@@ -63,11 +66,5 @@ public class ApiController {
                 .eventDate(DateTimeUtils.getStandardDateTime(item.getEventDate()))
                 .build()
         ).collect(Collectors.toList());
-    }
-
-    @GetMapping(value = "transactions/{accountId}/2")
-    @ResponseBody
-    public List<GetTransactionsResponse> getTransactions2(@PathVariable Integer accountId) {
-        return transactionService.getTransactionsByQuery(accountId);
     }
 }

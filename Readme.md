@@ -1,28 +1,29 @@
-Download source code from github
+###How to run?
 
-	git clone https://github.com/royalflash5150/pismo-test.git
+- Download source code from github
+    
+        git clone https://github.com/royalflash5150/pismo-test.git
 
+- Go to directory you cloned.
 
-
-Go to directory you cloned.
-
-	cd /pismo-test
+    	cd /pismo-test
   
-  
-  
-Start docker compose.
+- Start docker compose.
 
-	docker compose up
+    	docker compose up
 
 
 
-API:
-
-BaseURL: http://localhost:8080
-
+###API Specifications
+    
+- BaseURL
+        
+        http://localhost:8080
+        
+        
 - Create an account
 
-	POST /accounts
+	POST `/accounts`
 	
 	Request Body:
 	
@@ -38,8 +39,7 @@ BaseURL: http://localhost:8080
 	
 - Retrieve the account information
 
-
-	GET /accounts/:accountId
+	GET `/accounts/:accountId`
 	
 	Response Body:
 	
@@ -51,7 +51,7 @@ BaseURL: http://localhost:8080
 
 - Create a transaction
 
-	POST /transactions
+	POST `/transactions`
 	
 	Request Body:
 	
@@ -69,7 +69,7 @@ BaseURL: http://localhost:8080
 
 - Retrieve the transactions of account
 
-	GET /transactions/:accountId
+	GET `/transactions/:accountId`
 	
 	Response Body:
 	
@@ -87,5 +87,6 @@ BaseURL: http://localhost:8080
 				"account_id": 1,
 				"operation_type": "Credit Voucher",
 				"event_date": "2022-12-03 06:01:00"
-			}
+			},
+			...
 		]
