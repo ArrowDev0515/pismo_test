@@ -63,7 +63,7 @@ CREATE TABLE `transactions` (
   `transaction_id` bigint(20) NOT NULL,
   `account_id` int(11) NOT NULL,
   `operation_type_id` int(11) NOT NULL,
-  `amount` decimal(10,0) NOT NULL DEFAULT 0,
+  `amount` decimal(10,2) NOT NULL DEFAULT 0,
   `event_date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
