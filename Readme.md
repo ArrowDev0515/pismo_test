@@ -1,4 +1,4 @@
-###How to run?
+### How to run?
 
 - Download source code from github
     
@@ -14,7 +14,7 @@
 
 
 
-###API Specifications
+### API Specifications
     
 - BaseURL
         
@@ -44,8 +44,8 @@
 	Response Body:
 	
 		{
-			"account_id": 1,
-			"document_number": "12345678900"
+        "account_id": 1,
+        "document_number": "12345678900"
 		} 
 
 
@@ -56,9 +56,9 @@
 	Request Body:
 	
 		{
-			"account_id": 1,
-			"operation_type_id": 4,
-			"amount": 123.45
+        "account_id": 1,
+        "operation_type_id": 4,
+        "amount": 123.45
 		}
 
 	Response: 
@@ -74,19 +74,19 @@
 	Response Body:
 	
 		[
-			{
-				"amount": 123.45,
-				"transaction_id": 1,
-				"account_id": 1,
-				"operation_type": "Credit Voucher",
-				"event_date": "2022-12-03 05:58:55"
-			},
-			{
-				"amount": 200.00,
-				"transaction_id": 2,
-				"account_id": 1,
-				"operation_type": "Credit Voucher",
-				"event_date": "2022-12-03 06:01:00"
-			},
-			...
+        {
+            "amount": 123.45,
+            "transaction_id": 1,
+            "account_id": 1,
+            "operation_type": "Credit Voucher",
+            "event_date": "2022-12-03 05:58:55"
+        },
+        {
+            "amount": 200.00,
+            "transaction_id": 2,
+            "account_id": 1,
+            "operation_type": "Credit Voucher",
+            "event_date": "2022-12-03 06:01:00"
+        },
+        ...
 		]
