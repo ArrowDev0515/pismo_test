@@ -1,8 +1,6 @@
 package com.pismo.test.controllers;
 
-import com.pismo.test.jpa.entities.Accounts;
 import com.pismo.test.jpa.entities.Transactions;
-import com.pismo.test.models.CreateAccountRequest;
 import com.pismo.test.models.CreateTransactionRequest;
 import com.pismo.test.models.GetTransactionsResponse;
 import com.pismo.test.services.AccountService;
@@ -15,15 +13,14 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.transaction.Transactional;
 import java.util.List;
-import java.util.Optional;
 import java.util.stream.Collectors;
 
 @CrossOrigin(value = "*")
 @RestController
 @Transactional
-@RequestMapping(value = "/")
+@RequestMapping(value = "/transactions")
 @Log4j2
-public class ApiController {
+public class TransactionController {
 
     @Autowired
     AccountService accountService;
@@ -31,31 +28,12 @@ public class ApiController {
     @Autowired
     TransactionService transactionService;
 
-    @PostMapping(value = "accounts")
-    public ResponseEntity<Integer> createAccount(@RequestBody CreateAccountRequest request) {
-        Optional<Accounts> account = accountService.getAccount(request.getDocumentNumber());
-        if (account.isPresent())
-            return ResponseEntity.internalServerError().build();
-
-        return ResponseEntity.ok(accountService.createAccount(request.getDocumentNumber()).getAccountId());
-    }
-
-    @GetMapping(value = "account/{accountId}")
-    @ResponseBody
-    public Accounts getAccount(@PathVariable Integer accountId) {
-        Optional<Accounts> account = accountService.getAccount(accountId);
-
-        log.info(transactionService.getCurrentBalance(accountId));
-
-        return account.orElse(new Accounts());
-    }
-
-    @PostMapping(value = "transactions")
+    @PostMapping(value = "")
     public ResponseEntity<Long> createTransaction(@RequestBody CreateTransactionRequest request) {
         return ResponseEntity.ok(transactionService.createTransaction(request).getTransactionId());
     }
 
-    @GetMapping(value = "transactions/{accountId}")
+    @GetMapping(value = "/{accountId}")
     @ResponseBody
     public List<GetTransactionsResponse> getTransactions(@PathVariable Integer accountId) {
 //        return transactionService.getTransactionsByQuery(accountId);
