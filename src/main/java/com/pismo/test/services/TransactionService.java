@@ -48,4 +48,8 @@ public class TransactionService {
     public List<GetTransactionsResponse> getTransactionsByQuery(Integer accountId) {
         return transactionRepository.find(accountId);
     }
+
+    public BigDecimal getCurrentBalance(Integer accountId) {
+        return transactionRepository.getCurrentBalance(accountId);
+    }
 }

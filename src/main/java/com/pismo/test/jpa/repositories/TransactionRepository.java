@@ -6,6 +6,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 public interface TransactionRepository extends JpaRepository<Transactions, Long> {
@@ -16,4 +17,7 @@ public interface TransactionRepository extends JpaRepository<Transactions, Long>
             " left join OperationsType p on p.operationTypeId=t.operationsType.operationTypeId " +
             " where t.account.accountId=:accountId")
     List<GetTransactionsResponse> find(@Param("accountId") Integer accountId);
+
+    @Query(value = " select sum(t.amount) from Transactions t where t.account.accountId=:accountId")
+    BigDecimal getCurrentBalance(@Param("accountId") Integer accountId);
 }

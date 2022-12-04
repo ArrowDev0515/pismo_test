@@ -44,6 +44,9 @@ public class ApiController {
     @ResponseBody
     public Accounts getAccount(@PathVariable Integer accountId) {
         Optional<Accounts> account = accountService.getAccount(accountId);
+
+        log.info(transactionService.getCurrentBalance(accountId));
+
         return account.orElse(new Accounts());
     }
 
